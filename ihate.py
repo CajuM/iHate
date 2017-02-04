@@ -56,6 +56,7 @@ def opensearch_ihate(template, hate):
 
 	return False
 
+
 def get_ethnicities():
 	html = requests.get('https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups').content
 	html = etree.HTML(html)
@@ -63,14 +64,25 @@ def get_ethnicities():
 	ret = tbody.xpath('./tr[position() > 1]/td[1]/a/text()')
 	return ret
 
+def get_nationalities():
+	html = requests.get('https://en.wikipedia.org/wiki/Lists_of_people_by_nationality').content
+	html = etree.HTML(html)
+	tbody = html.xpath('//div[@id="mw-content-text"]/div[2]')[0]
+	ret = tbody.xpath('.//a/text()')
+	return ret
 
 def main():
 	ethnicities = get_ethnicities()
+	nationalities = get_nationalities()
 
 	hates = []
 	hates += ethnicities
+	hates += nationalities
 	hates += religions
 	hates += other
+
+	hates = list(set(hates))
+	hates.sort()
 
 	for hate in hates:
 		ihate = []
