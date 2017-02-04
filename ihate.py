@@ -18,6 +18,7 @@ religions = [
 	'Christians',
 	'Atheists',
 	'Jehovah\'s Witnesses',
+	'Mormons'
 	'Muslims',
 	'Hindu',
 	'Buddhists',
