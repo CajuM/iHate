@@ -12,9 +12,42 @@ osearch_templates = {
 	'Yahoo': 'https://search.yahoo.com/sugg/os?command={}&output=fxjson&fr=opensearch'
 }
 
-def opensearch_ihate(template, ethnicity):
-	q = 'I hate ' + ethnicity
+religions = [
+	'Catholics',
+	'Christians',
+	'Atheists',
+	'Jehovah\'s Witnesses',
+	'Muslims',
+	'Hindu',
+	'Buddhists',
+	'Lutherans',
+	'Baptists',
+	'Religion',
+	'Sunnis',
+	'Shiites'
+]
+
+other = [
+	'Blacks',
+	'Whites',
+	'Gays',
+	'Lesbians',
+	'Homosexuals',
+	'Straights',
+	'Bisexuals',
+	'Feminists',
+	'Liberals',
+	'Conservatives',
+	'Democrats',
+	'Liberals',
+	'Communists'
+]
+
+def opensearch_ihate(template, hate):
+	q = 'I hate ' + hate
 	json = requests.get(template.format(q)).json()
+	if len(json) < 2:
+		return False
 	suggestions = json[1]
 	for suggestion in suggestions:
 		rex = re.escape(q)
@@ -30,41 +63,24 @@ def get_ethnicities():
 	ret = tbody.xpath('./tr[position() > 1]/td[1]/a/text()')
 	return ret
 
+
 def main():
 	ethnicities = get_ethnicities()
 
-	for ethnicity in ethnicities:
+	hates = []
+	hates += ethnicities
+	hates += religions
+	hates += other
+
+	for hate in hates:
 		ihate = []
 		for name, template in osearch_templates.items():
-			if opensearch_ihate(template, ethnicity):
+			if opensearch_ihate(template, hate):
 				ihate.append(name)
 
 		ihate = ' '.join(ihate)
-		print('I hate {}: {}'.format(ethnicity, ihate))
+		print('I hate {}: {}'.format(hate, ihate))
 
-	religions = [
-		'Catholics',
-		'Christians',
-		'Atheists',
-		'Jehovah\'s Witnesses',
-		'Muslims',
-		'Hindu',
-		'Buddhists',
-		'Lutherans',
-		'Baptists',
-		'Religion',
-		'Sunnis',
-		'Shiites'
-	]
-
-	for religion in religions:
-		ihate = []
-		for name, template in osearch_templates.items():
-			if opensearch_ihate(template, religion):
-				ihate.append(name)
-
-		ihate = ' '.join(ihate)
-		print('I hate {}: {}'.format(religion, ihate))
 
 if __name__ == '__main__':
 	main()
