@@ -29,20 +29,28 @@ religions = [
 	'Shiites'
 ]
 
-other = [
+races = [
 	'Blacks',
 	'Whites',
+]
+
+sexual = [
 	'Gays',
 	'Lesbians',
 	'Homosexuals',
 	'Straights',
 	'Bisexuals',
+]
+
+politics = [
 	'Feminists',
 	'Liberals',
 	'Conservatives',
 	'Democrats',
 	'Liberals',
-	'Communists'
+	'Communists',
+	'George Washington',
+	'Abraham Lincoln'
 ]
 
 def opensearch_ihate(template, hate):
@@ -82,7 +90,9 @@ def main():
 		hates += ethnicities
 		hates += nationalities
 		hates += religions
-		hates += other
+		hates += races
+		hates += sexual
+		hates += politics
 	else:
 		hates.append(' '.join(sys.argv[1:]))
 
