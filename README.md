@@ -1,6 +1,6 @@
 iHate
 =====
-An experiment about web censorship
+An experiment about search engine censorship
 
 About
 =====
