@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import time
+import sys
 import re
 import requests
 from lxml import etree
@@ -76,10 +77,13 @@ def main():
 	nationalities = get_nationalities()
 
 	hates = []
-	hates += ethnicities
-	hates += nationalities
-	hates += religions
-	hates += other
+	if len(sys.argv) == 1:
+		hates += ethnicities
+		hates += nationalities
+		hates += religions
+		hates += other
+	else:
+		hates.append(' '.join(sys.argv[1:]))
 
 	hates = list(set(hates))
 	hates.sort()
