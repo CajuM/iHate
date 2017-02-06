@@ -25,7 +25,8 @@ religions = [
 	'Baptists',
 	'Religion',
 	'Sunnis',
-	'Shiites'
+	'Shiites',
+	'Justin Bieber'
 ]
 
 races = [

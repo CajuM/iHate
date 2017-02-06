@@ -20,3 +20,6 @@ $ ./ihate.py
 or
 $ ./ihate.py something
 ```
+
+## Notes:
+I think Google censors "I hate <name>" in general.
