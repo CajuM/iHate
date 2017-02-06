@@ -2,7 +2,6 @@
 
 import time
 import sys
-import re
 import requests
 from lxml import etree
 
@@ -65,8 +64,7 @@ def opensearch_ihate(template, hate):
 		return False
 	suggestions = json[1]
 	for suggestion in suggestions:
-		rex = re.escape(q)
-		if re.fullmatch(rex, suggestion, re.IGNORECASE):
+		if q.lower() == suggestion.lower():
 			return True
 
 	return False
