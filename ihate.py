@@ -83,11 +83,11 @@ def get_nationalities():
 	return ret
 
 def main():
-	ethnicities = get_ethnicities()
-	nationalities = get_nationalities()
-
 	hates = []
 	if len(sys.argv) == 1:
+		ethnicities = get_ethnicities()
+		nationalities = get_nationalities()
+
 		hates += ethnicities
 		hates += nationalities
 		hates += religions
