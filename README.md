@@ -22,4 +22,4 @@ $ ./ihate.py something
 ```
 
 ## Notes:
-I think Google censors "I hate <name>" in general.
+I think Google censors "I hate 'name'" in general.
