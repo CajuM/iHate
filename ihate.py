@@ -51,7 +51,11 @@ politics = [
 	'Communists',
 	'George Washington',
 	'Abraham Lincoln',
-	'Hitler'
+	'Hitler',
+	'George W Bush',
+	'Bush',
+	'Barack Obama',
+	'Obama'
 ]
 
 def opensearch_ihate(template, hate):
