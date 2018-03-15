@@ -9,16 +9,16 @@ query.
 
 ## Prerequisites
 * python3
-* pip
+* Pipenv
 ```
-$ pip3 install -r requirements.txt
+$ pipenv install
 ```
 
 ## Usage
 ```
-$ ./ihate.py
+$ pipenv run ./ihate.py
 or
-$ ./ihate.py something
+$ pipenv run ./ihate.py something
 ```
 
 ## Notes:
