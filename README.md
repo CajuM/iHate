@@ -9,16 +9,17 @@ query.
 
 ## Prerequisites
 * python3
-* Pipenv
+* lxml
+* requests
 ```
-$ pipenv install
+$ pip install -r requirements.txt
 ```
 
 ## Usage
 ```
-$ pipenv run ./ihate.py
+$ ./ihate.py
 or
-$ pipenv run ./ihate.py something
+$ ./ihate.py something
 ```
 
 ## Notes:
