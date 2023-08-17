@@ -7,8 +7,8 @@ from lxml import etree
 
 osearch_templates = {
 	'DuckDuckGo': 'https://duckduckgo.com/ac/?q={}&type=list',
-	'Google': 'http://suggestqueries.google.com/complete/search?output=firefox&q={}',
-	'Bing': 'http://api.bing.com/osjson.aspx?query={}',
+	'Google': 'https://suggestqueries.google.com/complete/search?output=firefox&q={}',
+	'Bing': 'https://api.bing.com/osjson.aspx?query={}',
 	'Yahoo': 'https://search.yahoo.com/sugg/os?command={}&output=fxjson&fr=opensearch'
 }
 
