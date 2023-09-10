@@ -59,13 +59,12 @@ politics = [
 
 def opensearch_ihate(s, template, hate):
     q = 'I hate ' + hate
-    json = s.get(template.format(q)).json()
+    json = s.get(template.format(q + ' ')).json()
     if len(json) < 2:
         return False
     suggestions = json[1]
-    for suggestion in suggestions:
-        if q.lower() == suggestion.lower():
-            return True
+    if suggestions:
+        return True
 
     return False
 
